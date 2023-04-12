@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6774a2a5-7b84-4ecb-8e1c-442e9dd2608a": {
+      "ProjectGuid": "6774a2a5-7b84-4ecb-8e1c-442e9dd2608a",
+      "DisplayName": "StudentDAL",
+      "ColorIndex": 0
+    },
+    "b7079978-fc4d-4920-970f-d28731467bd0": {
+      "ProjectGuid": "b7079978-fc4d-4920-970f-d28731467bd0",
+      "DisplayName": "StudentAPI",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

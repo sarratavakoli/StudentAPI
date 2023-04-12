@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using StudentAPI.Interfaces;
 using StudentDAL.Models;
 
@@ -40,23 +34,25 @@ namespace StudentAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(int id)
         {
-            if (_students.getStudent(id) == null)
+            if (id < 0)
             {
                 return NotFound();
             }
             try
             {
                 Student student = await _students.getStudent(id);
-                if (student == null)
+
+                if (student is null)
                 {
                     return NotFound();
                 }
+
                 return Ok(student);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
+            }     
         }
 
         // PUT: api/Students/5
@@ -64,7 +60,7 @@ namespace StudentAPI.Controllers
         [HttpPost("Update")]
         public async Task<IActionResult> PutStudent(Student student)
         {
-           try
+            try
             {
                 await _students.PutStudent(student);
                 return Ok();
@@ -95,12 +91,12 @@ namespace StudentAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
+            if (id < 0)
+            {
+                return BadRequest("Invalid ID");
+            }
             try
             {
-                if (_students.getStudent(id) == null)
-                {
-                    return NotFound();
-                }
                 await _students.DeleteStudent(id);
                 return Ok();
             }

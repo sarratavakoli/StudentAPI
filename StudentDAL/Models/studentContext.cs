@@ -32,6 +32,8 @@ namespace StudentDAL.Models
         {
             modelBuilder.Entity<Student>(entity =>
             {
+                entity.ToTable("Student");
+
                 entity.Property(e => e.Fname)
                     .HasMaxLength(20)
                     .IsUnicode(false)
